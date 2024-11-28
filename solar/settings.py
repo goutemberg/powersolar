@@ -123,8 +123,16 @@ USE_TZ = True
 
 # Arquivos estáticos (CSS, JavaScript, imagens)
 STATIC_URL = '/static/'  # URL base para arquivos estáticos
-STATICFILES_DIRS = [BASE_DIR / 'home/static']  # Diretório global para arquivos estáticos
-STATIC_ROOT = BASE_DIR / 'staticfiles'  # Diretório de coleta para arquivos estáticos
+# STATICFILES_DIRS = [BASE_DIR / 'home/static']  # Diretório global para arquivos estáticos
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+if not DEBUG:
+    
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, './home/static/home'),
+]
 
 
 # Default primary key field type
