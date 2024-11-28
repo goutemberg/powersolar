@@ -56,8 +56,11 @@ ROOT_URLCONF = 'solar.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],  # Para templates globais, se necessário
-        'APP_DIRS': True,  # Habilitar busca de templates dentro das pastas de apps
+        'DIRS': [
+            os.path.join(BASE_DIR, 'templates'),  # Para templates na raiz do projeto
+            os.path.join(BASE_DIR, 'home/templates'),  # Para templates no app 'home'
+        ],
+        'APP_DIRS': True,  # Certifique-se de que os apps sejam pesquisados também
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
@@ -120,7 +123,7 @@ USE_TZ = True
 
 # Arquivos estáticos (CSS, JavaScript, imagens)
 STATIC_URL = '/static/'  # URL base para arquivos estáticos
-STATICFILES_DIRS = [BASE_DIR / 'static']  # Diretório global para arquivos estáticos
+STATICFILES_DIRS = [BASE_DIR / 'home/static']  # Diretório global para arquivos estáticos
 STATIC_ROOT = BASE_DIR / 'staticfiles'  # Diretório de coleta para arquivos estáticos
 
 
