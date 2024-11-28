@@ -131,7 +131,7 @@ if not DEBUG:
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
 STATICFILES_DIRS = [
-    BASE_DIR / 'home/static',  # Adicionando a pasta home/static
+    BASE_DIR / 'home/static/home',  # Adicionando a pasta home/static
 ]
 
 
