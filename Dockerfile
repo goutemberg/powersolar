@@ -20,12 +20,15 @@ RUN python -m venv /venv && \
     adduser --disabled-password --no-create-home duser && \
     mkdir -p /data/web/static && \
     mkdir -p /data/web/media && \
+    mkdir -p /projeto_solar/staticfiles && \
+    chown -R duser:duser /projeto_solar/staticfiles && \
     chown -R duser:duser /venv && \
     chown -R duser:duser /data/web/static && \
     chown -R duser:duser /data/web/media && \
     chmod -R 755 /data/web/static && \
     chmod -R 755 /data/web/media && \
-     chmod -R +x /scripts
+    chmod -R 755 /projeto_solar/staticfiles && \
+    chmod -R +x /scripts
 
 # Definir variáveis de ambiente para o PATH
 ENV PATH="/scripts:/venv/bin:$PATH"
