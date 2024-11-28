@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-45!)-7vjc-im$j%@n#p4x!(m4oi9y47w+s#*p2sj$nxt($tp!e
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1','0.0.0.0','*']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1','0.0.0.0','*','powersolar.onrender.com','https://powersolar.onrender.com']
 
 
 # Application definition
@@ -79,12 +79,12 @@ WSGI_APPLICATION = 'solar.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 
 # Password validation
