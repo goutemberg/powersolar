@@ -109,6 +109,38 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
 
+# LANGUAGE_CODE = 'en-us'
+
+# TIME_ZONE = 'UTC'
+
+# USE_I18N = True
+
+# USE_TZ = True
+
+
+# # Static files (CSS, JavaScript, Images)
+# # https://docs.djangoproject.com/en/5.1/howto/static-files/
+
+# # Arquivos estáticos (CSS, JavaScript, imagens)
+# STATIC_URL = '/static/'  # URL base para arquivos estáticos
+# # STATICFILES_DIRS = [BASE_DIR / 'home/static']  # Diretório global para arquivos estáticos
+# STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+# if not DEBUG:
+    
+#     STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
+
+# STATICFILES_DIRS = [
+#     BASE_DIR / 'home/static/solar',  # Adicionando a pasta home/static
+# ]
+
+
+# # Default primary key field type
+# # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
+
+# DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
@@ -117,25 +149,19 @@ USE_I18N = True
 
 USE_TZ = True
 
+STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/5.1/howto/static-files/
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-# Arquivos estáticos (CSS, JavaScript, imagens)
-STATIC_URL = '/static/'  # URL base para arquivos estáticos
-# STATICFILES_DIRS = [BASE_DIR / 'home/static']  # Diretório global para arquivos estáticos
-STATIC_ROOT = BASE_DIR / 'staticfiles'
+MEDIA_ROOT = os.path.join(BASE_DIR, '/data/web/media')
 
 if not DEBUG:
     
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
 STATICFILES_DIRS = [
-    BASE_DIR / 'home/static/home',  # Adicionando a pasta home/static
+    os.path.join(BASE_DIR, './home/static/solar'),
 ]
-
-
-# Default primary key field type
-# https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
