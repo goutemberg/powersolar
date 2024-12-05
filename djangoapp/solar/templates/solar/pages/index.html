@@ -1,0 +1,626 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>New Power</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="{% static 'solar/images/favicon.png' %}" />
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+        <!-- Bootstrap Icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css" />
+        <!-- SimpleLightbox plugin CSS-->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="../../../static/solar/css/style.css" rel="stylesheet" />
+        <style>
+            /* Ajustes para as imagens lado a lado */
+            /* Garantir que as imagens ocupem 3 por linha */
+            .container-fluid {
+                padding: 0;
+            }
+            
+            .row.g-0 {
+                margin: 0;
+                display: flex;
+                flex-wrap: wrap; /* Quebras automáticas para linhas adicionais */
+            }
+            
+            .col-2 {
+                flex: 0 0 33.33%; /* Cada imagem ocupa 1/3 da linha */
+                max-width: 33.33%;
+                padding: 5px; /* Espaçamento entre imagens */
+            }
+            
+            .img-fluid {
+                width: 100%; /* Garante que as imagens preencham a largura da coluna */
+                height: auto; /* Mantém a proporção */
+                max-height: 400px; /* Dobro do tamanho original */
+                object-fit: cover; /* Ajuste sem distorção */
+            }
+
+            /* Aumentando o tamanho das imagens (dobro do tamanho original) */
+            .col-4 img {
+                max-height: 400px; /* Define altura máxima maior */
+                width: auto; /* Ajusta largura proporcional à altura */
+            }
+
+        /* Mantém o restante dos estilos */
+        .top-info-bar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #FF7F50;
+            z-index: 1030;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 12px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            color: #ffffff;
+            font-size: 13px;
+        }
+
+        .projects-text {
+            font-weight: bold;
+            color: #FF7F50; /* Cor do texto destacado */
+        }
+
+        .masthead h1 {
+            width: 100%; /* Garantir que o texto ocupe toda a largura disponível */
+            word-wrap: break-word; /* Quebra a linha automaticamente, se necessário */
+            white-space: normal; /* Permite quebras de linha */
+        }
+
+        .top-info-bar div {
+            display: flex;
+            align-items: center;
+            margin: 0 20px;
+        }
+
+        .top-info-bar div i {
+            margin-right: 5px;
+            font-size: 16px;
+        }
+
+        .top-info-bar div span {
+            font-weight: bold;
+        }
+
+        .top-info-bar a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .top-info-bar a:hover {
+            color: #ffd7ba;
+        }
+
+        .navbar {
+            margin-top: 40px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+        }
+
+        .masthead {
+            height: 100vh;
+            background-image: url('{% static "solar/assets/img/bg-masthead.jpg" %}');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .text-coral {
+            color: #FF7F50;
+        }
+
+        .masthead::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.6);
+            z-index: 1;
+        }
+
+        .masthead .container {
+            z-index: 2;
+        }
+
+.text-highlight {
+    color: #ffffff;
+}
+
+.text-highlight-light {
+    color: #ffffff;
+}
+
+.btn {
+    padding: 15px 25px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 30px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+.btn-whatsapp-sent{
+    background-color: #FF7F50;
+    border-color: #FF7F50;
+    color: white;
+}
+.btn-whatsapp-sent:hover {
+    background-color: #FF7F50;
+    border-color: #FF7F50;
+}
+
+.btn-whatsapp-sent i {
+    margin-right: 10px;
+    font-size: 1.5rem;
+}
+
+.btn-whatsapp {
+    background-color: #3B82F6;
+    border-color: #3B82F6;
+    color: white;
+}
+
+.btn-whatsapp:hover {
+    background-color: #3B82F6;
+    border-color: #3B82F6;
+}
+
+.btn-whatsapp i {
+    margin-right: 10px;
+    font-size: 1.5rem;
+}
+
+.btn-orcamento {
+    background-color: #FF7F50;
+    border-color: #FF7F50;
+    color: white;
+}
+
+.btn-orcamento:hover {
+    background-color: #FF6347;
+    border-color: #FF6347;
+}
+
+.btn-orcamento i {
+    margin-right: 10px;
+    font-size: 1.5rem;
+}
+
+.container-btn {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.text-fine {
+    font-weight: 300; /* Deixa o texto mais fino */
+    font-family: 'Helvetica Neue', sans-serif; /* Usando uma fonte leve (opcional) */
+}
+
+.card {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    width: 100%;
+    max-width: 180px;
+}
+
+.card .icon {
+    font-size: 40px;
+    color: #FF7F50;
+    margin-bottom: 10px;
+}
+
+.card h3 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-size: 14px;
+    color: #6c757d;
+    line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+    .col-4 {
+        flex: 0 0 50%; /* Ajusta para 2 imagens por linha em telas menores */
+        max-width: 50%;
+    }
+}
+
+@media (max-width: 576px) {
+    .col-4 {
+        flex: 0 0 100%; /* Ajusta para 1 imagem por linha em telas muito pequenas */
+        max-width: 100%;
+    }
+}
+.whatsapp_float {
+    position: fixed; /* Fixa o elemento em uma posição específica */
+    bottom: 20px; /* Distância do fundo da página */
+    right: 20px; /* Distância da borda direita */
+    z-index: 9999; /* Garante que esteja no topo de outros elementos */
+    cursor: pointer; /* Altera o cursor para indicar que é clicável */
+    transition: transform 0.3s ease; /* Efeito suave ao passar o mouse */
+}
+
+.whatsapp_float img {
+    width: 75px; /* Tamanho do ícone */
+    height: 75px; /* Altura do ícone */
+    border-radius: 50%; /* Deixa o ícone circular */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adiciona um leve efeito de sombra */
+}
+
+.whatsapp_float:hover {
+    transform: scale(1.1); /* Aumenta o tamanho do ícone ao passar o mouse */
+}
+</style>        
+    </head>
+    <body id="page-top">
+        <!-- Fixed Info Bar -->
+        <div class="top-info-bar">
+            <div>
+                <i class="bi bi-whatsapp"></i>
+                <span class="wixui-rich-text__text">WhatsApp:</span> 
+                <a href="https://api.whatsapp.com/send?phone=+5531998210115&text=Olá!%20Estou%20interessado%20em%20seus%20servicos." target="_blank" class="wixui-rich-text__text text-fine">(99) 99999-9999</a>
+            </div>
+            <div>
+                <i class="fas fa-map-marker-alt"></i>
+                <span class="wixui-rich-text__text">Endereço:</span>
+                <span class="wixui-rich-text__text text-fine">Rua Exemplo, 123 - Centro</span>
+            </div>
+            <div>
+                <i class="fas fa-envelope"></i>
+                <span class="wixui-rich-text__text">Email:</span> 
+                <a href="mailto:exemplo@email.com" class="wixui-rich-text__text text-fine">exemplo@email.com</a>
+            </div>
+        </div>
+        
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+            <div class="container px-4 px-lg-5">
+                <a class="navbar-brand wixui-rich-text__text d-flex align-items-center" href="#page-top" style="text-decoration: none; color: inherit;">
+                    <i class="bi bi-sun-fill" style="font-size: 24px; color: #FF7F50; margin-right: 10px;"></i>
+                    <span style="font-size: 20px; font-weight: bold;">New Power Solar</span>
+                </a>
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto my-2 my-lg-0">
+                        <li class="nav-item"><a class="nav-link wixui-rich-text__text" href="#home">HOME</a></li>
+                        <li class="nav-item"><a class="nav-link wixui-rich-text__text" href="#about">SOBRE</a></li>
+                        <li class="nav-item"><a class="nav-link wixui-rich-text__text" href="#sustainable">ENERGIA LIMPA</a></li>
+                        <li class="nav-item"><a class="nav-link wixui-rich-text__text" href="#services">COMO FUNCIONA</a></li>
+                        <li class="nav-item"><a class="nav-link wixui-rich-text__text" href="#portfolio">PORTFOLIO</a></li>
+                        <li class="nav-item"><a class="nav-link wixui-rich-text__text" href="#contact">CONTATO</a></li>
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+        <!-- Masthead -->
+        <header class="masthead" style="background-image: url('{% static 'solar/images/home.webp' %}');" id="home">
+            <div class="container px-4 px-lg-5 h-100">
+                <div class="row gx-4 gx-lg-5 h-100 justify-content-center align-items-center text-center">
+                    <div class="col-lg-8">
+                        <h1 class="text-highlight font-weight-bold"><span class="projects-text">Vários projetos entregues</span><br> em Pernambuco.</h1>
+                        <p class="text-highlight-light mb-4">Contrate a empresa com a melhor equipe de profissionais do mercado. <br> Financie seu projeto em até 120x ou em até 21x sem juros no cartão de crédito.</p>
+                        <div class="container-btn">
+                            <!-- Botão WhatsApp -->
+                            <a href="https://api.whatsapp.com/send?phone=+5531998210115&text=Olá!%20Estou%20interessado%20em%20seus%20servicos." class="btn btn-whatsapp">
+                                <i class="fab fa-whatsapp"></i> WhatsApp
+                            </a>
+                            <!-- Botão Orçamento -->
+                            <a href="#orcamento" class="btn btn-orcamento">
+                                <i class="fas fa-file-invoice-dollar"></i> Faça já seu orçamento
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+<!-- About -->
+<section class="page-section bg-white mt-5" id="about"> <!-- Adicionei 'mt-5' para criar espaço acima -->
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-lg-8 text-center">
+                <h2 class="mt-0" style="color: #E56742;">O responsável pela transformação</h2>
+                <hr class="divider divider-black" />
+                <p class="mb-4" style="color: #666;">
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+                </p>
+            </div>
+        </div>
+        <div class="row gx-2 align-items-center mt-5">
+            <!-- Box com a foto -->
+            <div class="col-md-4 d-flex justify-content-center">
+                <div class="photo-box" style="width: 250px; height: 250px; background-color: #f8f9fa; border: 1px solid #ddd; overflow: hidden; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+                    <img src="{% static 'solar/images/portfolio/thumbnails/2.webp' %}" alt="Foto do responsável" style="width: 100%; height: 100%; object-fit: cover;" />
+                </div>
+            </div>
+            <!-- Texto ao lado -->
+            <div class="col-md-8" style="margin-left: -10px;"> <!-- Reduzindo o espaço com margem negativa -->
+                <h2 style="color: #E56742;">Alvaro Lima</h2>
+                <h5 style="color: #555;">Fundador</h5>
+                <p style="color: #666; line-height: 1.6;">
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+     <!-- Sustainable-->
+     <section class="page-section bg-white" id="sustainable">
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h2 class="mt-0" style="color: #E56742;">Como a energia solar pode abastecer sua casa!</h2>
+                    <hr class="divider divider-black" />
+                    <p class="mb-4" style="color: #666;">A energia solar capta a luz do sol por meio de painéis fotovoltaicos, convertendo-a em eletricidade para abastecer sua casa de forma sustentável e econômica. É uma solução limpa que reduz sua conta de luz e ajuda o meio ambiente.</p>
+                    <div class="container-btn">
+                        <!-- Botão WhatsApp -->
+                        <a href="https://api.whatsapp.com/send?phone=+5531998210115&text=Olá!%20Estou%20interessado%20em%20seus%20servicos." class="btn btn-whatsapp">
+                            <i class="fab fa-whatsapp"></i> WhatsApp
+                        </a>
+                        <!-- Botão Orçamento -->
+                        <a href="#orcamento" class="btn btn-orcamento">
+                            <i class="fas fa-file-invoice-dollar"></i> Faça já seu orçamento
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+        <!-- Services-->
+        <section class="page-section" id="services">
+            <div class="container px-4 px-lg-5">
+                <h2 class="mt-0" style="color: #E56742; text-align: center;">Como Funciona</h2>
+                <p class="mb-0" style="color: #666; text-align: center;">
+                    Oferecemos soluções de energia solar para sua residência ou empresa, <br>
+                    com a possibilidade de reduzir sua conta de energia em até 95%.
+                </p>
+                <hr class="divider divider-black" />
+                <div class="row gx-4 gx-lg-5" style="justify-content: center; gap: 20px; margin-top: 40px;">
+                    <!-- Caixa 1 -->
+                    <div class="col-lg-2 col-md-4 col-sm-6 text-center">
+                        <div style="border: 1px solid rgba(0,0,0,0.1); border-radius: 10px; padding: 20px; background-color: #fff; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15); display: flex; flex-direction: column; justify-content: space-between; align-items: center; height: 100%; min-height: 270px;">
+                            <div class="mb-3">
+                                <i class="bi bi-lightning-charge-fill" style="font-size: 40px; color: #FF7F50;"></i>
+                            </div>
+                            <h3 class="h5 mb-2">Projeto</h3>
+                            <p style="font-size: 14px; color: #6c757d;">Elaboramos um projeto personalizado para atender à sua necessidade.</p>
+                        </div>
+                    </div>
+                    <!-- Caixa 2 -->
+                    <div class="col-lg-2 col-md-4 col-sm-6 text-center">
+                        <div style="border: 1px solid rgba(0,0,0,0.1); border-radius: 10px; padding: 20px; background-color: #fff; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15); display: flex; flex-direction: column; justify-content: space-between; align-items: center; height: 100%; min-height: 270px;">
+                            <div class="mb-3">
+                                <i class="bi bi-shield-check" style="font-size: 40px; color: #FF7F50;"></i>
+                            </div>
+                            <h3 class="h5 mb-2">Homologação</h3>
+                            <p style="font-size: 14px; color: #6c757d;">Cuidamos de todo o processo de legalização junto à distribuidora.</p>
+                        </div>
+                    </div>
+                    <!-- Caixa 3 -->
+                    <div class="col-lg-2 col-md-4 col-sm-6 text-center">
+                        <div style="border: 1px solid rgba(0,0,0,0.1); border-radius: 10px; padding: 20px; background-color: #fff; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15); display: flex; flex-direction: column; justify-content: space-between; align-items: center; height: 100%; min-height: 270px;">
+                            <div class="mb-3">
+                                <i class="bi bi-hammer" style="font-size: 40px; color: #FF7F50;"></i>
+                            </div>
+                            <h3 class="h5 mb-2">Instalação</h3>
+                            <p style="font-size: 14px; color: #6c757d;">Instalamos o sistema utilizando os equipamentos mais atuais do mercado.</p>
+                        </div>
+                    </div>
+                    <!-- Caixa 4 -->
+                    <div class="col-lg-2 col-md-4 col-sm-6 text-center">
+                        <div style="border: 1px solid rgba(0,0,0,0.1); border-radius: 10px; padding: 20px; background-color: #fff; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15); display: flex; flex-direction: column; justify-content: space-between; align-items: center; height: 100%; min-height: 270px;">
+                            <div class="mb-3">
+                                <i class="bi bi-tools" style="font-size: 40px; color: #FF7F50;"></i>
+                            </div>
+                            <h3 class="h5 mb-2">Manutenção</h3>
+                            <p style="font-size: 14px; color: #6c757d;">Oferecemos uma assinatura opcional de manutenção preventiva para o seu sistema.</p>
+                        </div>
+                    </div>
+                    <!-- Caixa 5 -->
+                    <div class="col-lg-2 col-md-4 col-sm-6 text-center">
+                        <div style="border: 1px solid rgba(0,0,0,0.1); border-radius: 10px; padding: 20px; background-color: #fff; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15); display: flex; flex-direction: column; justify-content: space-between; align-items: center; height: 100%; min-height: 270px;">
+                            <div class="mb-3">
+                                <i class="bi bi-bar-chart-line" style="font-size: 40px; color: #FF7F50;"></i>
+                            </div>
+                            <h3 class="h5 mb-2">Monitoramento</h3>
+                            <p style="font-size: 14px; color: #6c757d; word-wrap: break-word; text-align: center;">Monitoramos a geração à distância para prevenção e segurança.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Portfolio -->
+        <div class="container-fluid p-0" id="portfolio">
+            <div class="row g-0">
+                <div class="col-2">
+                    <img class="img-fluid" src="{% static 'solar/images/portfolio/thumbnails/2.webp' %}" alt="Image 1" />
+                </div>
+                <div class="col-2">
+                    <img class="img-fluid" src="{% static 'solar/images/portfolio/thumbnails/2.webp' %}" alt="Image 2" />
+                </div>
+                <div class="col-2">
+                    <img class="img-fluid" src="{% static 'solar/images/portfolio/thumbnails/2.webp' %}" alt="Image 3" />
+                </div>
+                <div class="col-2">
+                    <img class="img-fluid" src="{% static 'solar/images/portfolio/thumbnails/2.webp' %}" alt="Image 4" />
+                </div>
+                <div class="col-2">
+                    <img class="img-fluid" src="{% static 'solar/images/portfolio/thumbnails/2.webp' %}" alt="Image 5" />
+                </div>
+                <div class="col-2">
+                    <img class="img-fluid" src="{% static 'solar/images/portfolio/thumbnails/2.webp' %}" alt="Image 6" />
+                </div>
+            </div>
+        </div>
+        
+        <!-- Call to action-->
+        <section class="page-section" style="background-color: #FCFBFA; color: black;">
+            <div class="container px-4 px-lg-5 text-center">
+                <h2 class="mb-4" style="color: #FF7F50;">Entre em contato para mais informações</h2>
+                <div class="container-btn">
+                    <!-- Botão WhatsApp -->
+                    <a href="https://api.whatsapp.com/send?phone=+5531998210115&text=Olá!%20Estou%20interessado%20em%20seus%20servicos." class="btn btn-whatsapp">
+                        <i class="fab fa-whatsapp"></i> WhatsApp
+                    </a>
+                    <!-- Botão Orçamento -->
+                    <a href="#orcamento" class="btn btn-orcamento">
+                        <i class="fas fa-file-invoice-dollar"></i> Faça já seu orçamento
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Contact-->
+        <section class="page-section" id="contact">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-lg-8 col-xl-6 text-center">
+                        <h2 class="mt-0" style="color: #FF7F50;">Entre em Contato Conosco!</h2>
+                        <hr class="divider"/>
+                        <p class="text-muted mb-5">Pronto para começar seu próximo projeto conosco? Envie-nos uma mensagem e retornaremos o mais rápido possível!</p>
+                    </div>
+                </div>
+                <div class="row gx-4 gx-lg-5 justify-content-center mb-5">
+                    <div class="col-lg-6">
+                        <!-- https://startbootstrap.com/solution/contact-forms-->
+                        {% comment %} <form id="contactForm" method="POST" data-sb-form-api-token="API_TOKEN" action="{% url 'send_email_view' %}"> {% endcomment %}
+                            {% csrf_token %}
+                            <!-- Name input-->
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="name" name="name" type="text" placeholder="Enter your name..." required oninvalid="this.setCustomValidity('Informe Seu Nome')" oninput="setCustomValidity('')"/>
+                                <label for="name">Nome Completo</label>
+                                <div class="invalid-feedback" data-sb-feedback="name:required">Favor Informar seu nome.</div>
+                            </div>
+                            <!-- Email address input-->
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="email" name="email" type="email" placeholder="name@example.com" data-sb-validations="required,email" required oninvalid="this.setCustomValidity('Informe Seu E-mail')" oninput="setCustomValidity('')"/>
+                                <label for="email">Email</label>
+                                <div class="invalid-feedback" data-sb-feedback="email:required">Favor Informar um Email.</div>
+                                <div class="invalid-feedback" data-sb-feedback="email:email">Email não é valido.</div>
+                            </div>
+                            <!-- Phone number input-->
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="phone" name="phone" type="tel" placeholder="(XX) 9 XXXX-XXXX" required oninvalid="this.setCustomValidity('Informe Seu Telefone')" oninput="setCustomValidity('')"/>
+                                <label for="phone">Celular</label>
+                                <div class="invalid-feedback" data-sb-feedback="phone:required">Favor Informar um celular.</div>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="cidade" name="cidade" type="tel" placeholder="Cidade" required oninvalid="this.setCustomValidity('Informe a cidade)" oninput="setCustomValidity('')"/>
+                                <label for="cidade">Cidade</label>
+                                <div class="invalid-feedback" data-sb-feedback="cidade:required">Favor Informar a cidade.</div>
+                            </div>
+                            <!-- Setor da empresa -->
+                            <div class="form-floating mb-3">
+                                <select class="form-control" id="tipo" name="tipo" required oninvalid="this.setCustomValidity('Escolha o tipo')" oninput="setCustomValidity('')">
+                                    <option selected>Escolha o Tipo</option>
+                                    <option value="residenciao">Residencial</option>
+                                    <option value="empresarial">Empresarial</option>
+                                    <option value="condominio">Condominio</option>
+                                </select>
+                            </div>
+                            <div class="d-grid">
+                                <button class="btn btn-whatsapp-sent btn-xl" id="submitButton" type="submit">Quero economizar</button>
+                            </div>
+                        <form/>                  
+                    <!-- Popup de sucesso/erro -->
+                <div id="emailModal" class="modal" style="display: none;">
+                <div class="modal-content">
+                <h2 id="modalTitle"></h2>
+                <p id="modalMessage"></p>
+                <button id="modalButton" class="btn btn-primary">OK</button>
+                </div>
+                </div>                        
+                    </div>
+                </div>
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-lg-4 text-center mb-5 mb-lg-0">
+                        <i class="bi-phone fs-2 mb-3 text-muted"></i>
+                        <div>+55 (81) 9 9821-0115</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Footer-->
+        <footer class="bg-light py-5">
+            <div class="container px-4 px-lg-5">
+                <div class="d-flex justify-content-center">
+                    <a href="https://x.com" class="text-muted mx-3" target="_blank">
+                        <i class="fab fa-x-twitter"></i>
+                    </a>
+                    <a href="https://instagram.com/whitelabelrobochat/" class="text-muted mx-3" target="_blank">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://api.whatsapp.com/send?phone=+5531998210115&text=Olá!%20Estou%20interessado%20em%20seus%20servicos." target="_blank" class="text-muted mx-3" target="_blank"> 
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="https://youtube.com/@whitelabel" class="text-muted mx-3" target="_blank">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                    <a href="https://telegram.org" class="text-muted mx-3" target="_blank">
+                        <i class="fab fa-telegram"></i>
+                    </a>
+                </div>
+                <div class="small text-center text-muted mt-3">Copyright &copy; {% now "Y" %} - New Power Solar</div>
+            </div>  
+        </footer>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js"></script>
+        <script src="static/whitelabel/js/scripts.js"></script>
+        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+        <script>
+        document.addEventListener("DOMContentLoaded", function() {
+                {% if success %}
+                    showModal("Sucesso", "Seu e-mail foi enviado com sucesso!", "{% url 'index' %}");
+                {% elif error_message %}
+                    showModal("Erro", "{{ error_message }}", "{% url 'index' %}");
+                {% endif %}
+        
+                function showModal(title, message, redirectUrl) {
+                    document.getElementById('modalTitle').textContent = title;
+                    document.getElementById('modalMessage').textContent = message;
+                    document.getElementById('emailModal').style.display = 'block';
+        
+                    document.getElementById('modalButton').addEventListener('click', function() {
+                        window.location.href = redirectUrl;
+                    });
+                }
+            });
+        </script>
+        <a href="https://api.whatsapp.com/send?phone=+5531998210115&text=Olá!%20Estou%20interessado%20em%20seus%20servicos." class="whatsapp_float" target="_blank">
+            <img src="{% static 'solar/images/portfolio/thumbnails/WhatsApp_icon.png' %}" alt="WhatsApp" width="75" height="75">
+        </a>
+    </body>
+</html>
