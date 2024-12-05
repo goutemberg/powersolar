@@ -27,7 +27,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 DEBUG = False
 
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['https://powersolar.onrender.com/','powersolar.onrender.com','127.0.0.1','localhost']
 
 # Application definition
 
